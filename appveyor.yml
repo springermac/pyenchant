@@ -10,4 +10,4 @@ install:
 build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/../enchant; PATH=/mingw32/bin:$PATH; ./autogen.sh"
 artifacts:
-  - path: C:\projects\enchant
+  - path: $APPVEYOR_BUILD_FOLDER\..\enchant
