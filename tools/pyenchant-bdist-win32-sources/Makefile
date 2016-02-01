@@ -3,7 +3,7 @@
 #
 ifdef APPVEYOR
 	BUILD_DIR = $(APPVEYOR_BUILD_FOLDER)/tools/pyenchant-bdist-win32-sources/build
-	PKG_CONFIG = /mingw64/bin/pkg-config
+	PKG_CONFIG = /mingw32/bin/pkg-config
 else
 	BUILD_DIR = /c/Users/rfk/Documents/GitHub/pyenchant/tools/pyenchant-bdist-win32-sources/build
 	ENCHANT_CFLAGS = -I$(BUILD_DIR)/include/glib-2.0
