@@ -1,0 +1,8 @@
+--- enchant-1.6.0/Makefile.am
++++ enchant-1.6.0/Makefile.am
+@@ -1,4 +1,4 @@
+-SUBDIRS=src tests doc data
++SUBDIRS=src doc data
+
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = enchant.pc
