@@ -32,7 +32,7 @@ $(ENCHANT_DIR)/Makefile: src/$(ENCHANT_DIR).tar.gz
 	patch $(ENCHANT_DIR)/src/enchant.c < patches/relocatable.patch
 	patch $(ENCHANT_DIR)/src/myspell/myspell_checker.cpp < patches/myspell_checker.patch
 	patch $(ENCHANT_DIR)/src/enchant-provider.h < patches/dllmain.patch
-	patch $(ENCHANT_DIR)/src/ispell/ispell_checker.cpp < patches/ispell_checker.patch
+	patch $(ENCHANT_DIR)/src/ispell/ispell_checker.cpp < patches/gsize.patch
 	cp src/config.guess $(ENCHANT_DIR)
 	cp src/config.sub $(ENCHANT_DIR)
 	cd $(ENCHANT_DIR) && ./configure CC="$(CC)" CXX="$(CXX)" ENCHANT_CFLAGS="$(ENCHANT_CFLAGS)" ENCHANT_LIBS="$(ENCHANT_LIBS)" $(ENCHANT_CONFIG_OPTS)
