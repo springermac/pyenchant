@@ -9,5 +9,7 @@ install:
   - git clone https://github.com/AbiWord/enchant.git C:\projects\enchant
 build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/../enchant; PATH=/mingw32/bin:$PATH; ./autogen.sh"
+  - chdir $APPVEYOR_BUILD_FOLDER
+  - dir
 artifacts:
   - path: $APPVEYOR_BUILD_FOLDER\..\enchant
