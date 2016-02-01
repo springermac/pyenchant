@@ -1,0 +1,11 @@
+--- tools/pyenchant-bdist-win32-sources/src/enchant-1.6.0/src/ispell/ispell_checker.cpp	2016-01-31 23:32:52.000000000 -0500
++++ tools/pyenchant-bdist-win32-sources/src/enchant-1.6.0/src/ispell/ispell_checker.cpp.a	2016-01-31 23:33:16.000000000 -0500
+@@ -168,7 +168,7 @@
+ 			char *In = normalizedWord;
+ 			char *Out = szWord;
+
+-			len_in = strlen(In);
++			len_in = g_utf8_strlen(In);
+ 			len_out = sizeof( szWord ) - 1;
+ 			result = g_iconv(m_translate_in, &In, &len_in, &Out, &len_out);
+ 			g_free(normalizedWord);
