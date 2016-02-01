@@ -1,5 +1,8 @@
 platform:
   - x86
+matrix:
+  allow_failures:
+    - platform: x86
 environment:
   matrix:
     - MSYS2_ARCH: i686
