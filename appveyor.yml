@@ -1,6 +1,6 @@
 platform:
   - x64
-+environment:
+environment:
   matrix:
     - MSYS2_ARCH: x86_64
 install:
