@@ -1,8 +1,8 @@
 platform:
-  - x64
+  - x86
 environment:
   matrix:
-    - MSYS2_ARCH: x86_64
+    - MSYS2_ARCH: i686
 install:
   - C:\\msys64\usr\bin\bash -lc ""
   - C:\\msys64\usr\bin\bash -lc "for i in {1..3}; do pacman --noconfirm -Suy mingw-w64-%MSYS2_ARCH%-glib2 mingw-w64-%MSYS2_ARCH%-pkg-config && break || sleep 15; done"
