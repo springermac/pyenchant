@@ -36,7 +36,7 @@ $(ENCHANT_DIR)/Makefile: src/$(ENCHANT_DIR).tar.gz
 	patch -p0 < patches/gsize.patch
 	cp src/config.guess $(ENCHANT_DIR)
 	cp src/config.sub $(ENCHANT_DIR)
-	cd $(ENCHANT_DIR) && ./configure CC="$(CC)" CXX="$(CXX)" ENCHANT_CFLAGS="$(ENCHANT_CFLAGS)" ENCHANT_LIBS="$(ENCHANT_LIBS)" PKG_CONFIG="$(PKG_CONFIG)" "$(ENCHANT_CONFIG_OPTS)
+	cd $(ENCHANT_DIR) && ./configure CC="$(CC)" CXX="$(CXX)" ENCHANT_CFLAGS="$(ENCHANT_CFLAGS)" ENCHANT_LIBS="$(ENCHANT_LIBS)" PKG_CONFIG="$(PKG_CONFIG)" $(ENCHANT_CONFIG_OPTS)
 
 
 # Ability to extract MySpell dictionary files
