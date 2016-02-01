@@ -1,9 +1,7 @@
-# Patch from https://github.com/avionic-design/pbs-stage2/blob/master/packages/libs/enchant/patches/gsize.patch
-diff --git a/src/ispell/ispell_checker.cpp b/src/ispell/ispell_checker.cpp
-index 4d4f729..94f69e1 100644
---- a/src/ispell/ispell_checker.cpp
-+++ b/src/ispell/ispell_checker.cpp
-@@ -162,7 +162,7 @@ ISpellChecker::checkWord(const char * const utf8Word, size_t length)
+Patch from https://github.com/avionic-design/pbs-stage2/blob/master/packages/libs/enchant/patches/gsize.patch
+--- enchant-1.6.0/src/ispell/ispell_checker.cpp	2010-04-01 16:53:37.000000000 -0400
++++ enchant-1.6.0/src/ispell/ispell_checker.cpp	2016-02-01 00:23:00.000000000 -0500
+@@ -162,7 +162,7 @@
  	else
  		{
  			/* convert to 8bit string and null terminate */
@@ -12,7 +10,7 @@ index 4d4f729..94f69e1 100644
  			// the 8bit encodings use precomposed forms
  			char *normalizedWord = g_utf8_normalize (utf8Word, length, G_NORMALIZE_NFC);
  			char *In = normalizedWord;
-@@ -172,7 +172,7 @@ ISpellChecker::checkWord(const char * const utf8Word, size_t length)
+@@ -172,7 +172,7 @@
  			len_out = sizeof( szWord ) - 1;
  			result = g_iconv(m_translate_in, &In, &len_in, &Out, &len_out);
  			g_free(normalizedWord);
@@ -21,7 +19,7 @@ index 4d4f729..94f69e1 100644
  				return false;
  			*Out = '\0';
  		}
-@@ -210,7 +210,7 @@ ISpellChecker::suggestWord(const char * const utf8Word, size_t length,
+@@ -210,7 +210,7 @@
  		{
  			/* convert to 8bit string and null terminate */
  			
@@ -30,7 +28,7 @@ index 4d4f729..94f69e1 100644
  			// the 8bit encodings use precomposed forms
  			char *normalizedWord = g_utf8_normalize (utf8Word, length, G_NORMALIZE_NFC);
  			char *In = normalizedWord;
-@@ -219,7 +219,7 @@ ISpellChecker::suggestWord(const char * const utf8Word, size_t length,
+@@ -219,7 +219,7 @@
  			len_out = sizeof( word8 ) - 1;
  			result = g_iconv(m_translate_in, &In, &len_in, &Out, &len_out);
  			g_free(normalizedWord);
@@ -39,7 +37,7 @@ index 4d4f729..94f69e1 100644
  				return NULL;
  			*Out = '\0';
  		}
-@@ -252,13 +252,13 @@ ISpellChecker::suggestWord(const char * const utf8Word, size_t length,
+@@ -252,13 +252,13 @@
  					{
  						/* convert to 32bit string and null terminate */
  						
@@ -55,11 +53,9 @@ index 4d4f729..94f69e1 100644
  							*out_n_suggestions = c;
  							return sugg_arr;
  						}
-diff --git a/src/myspell/myspell_checker.cpp b/src/myspell/myspell_checker.cpp
-index 84ab36c..ed166ab 100644
---- a/src/myspell/myspell_checker.cpp
-+++ b/src/myspell/myspell_checker.cpp
-@@ -159,11 +159,11 @@ MySpellChecker::checkWord(const char *utf8Word, size_t len)
+--- enchant-1.6.0/src/myspell/myspell_checker.cpp	2016-02-01 00:20:26.000000000 -0500
++++ enchant-1.6.0/src/myspell/myspell_checker.cpp	2016-02-01 00:28:01.000000000 -0500
+@@ -159,11 +159,11 @@
  	char *in = normalizedWord;
  	char word8[MAXWORDLEN + 1];
  	char *out = word8;
@@ -75,7 +71,7 @@ index 84ab36c..ed166ab 100644
  		return false;
  	*out = '\0';
  	if (myspell->spell(word8))
-@@ -185,11 +185,11 @@ MySpellChecker::suggestWord(const char* const utf8Word, size_t len, size_t *nsug
+@@ -185,11 +185,11 @@
  	char *in = normalizedWord;
  	char word8[MAXWORDLEN + 1];
  	char *out = word8;
@@ -91,7 +87,7 @@ index 84ab36c..ed166ab 100644
  		return NULL;
  
  	*out = '\0';
-@@ -203,7 +203,7 @@ MySpellChecker::suggestWord(const char* const utf8Word, size_t len, size_t *nsug
+@@ -203,7 +203,7 @@
  			len_out = MAXWORDLEN;
  			char *word = g_new0(char, len_out + 1);
  			out = reinterpret_cast<char *>(word);
