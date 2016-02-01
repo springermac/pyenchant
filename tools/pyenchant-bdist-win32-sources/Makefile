@@ -8,12 +8,12 @@ else
 	BUILD_DIR = /c/Users/rfk/Documents/GitHub/pyenchant/tools/pyenchant-bdist-win32-sources/build
 	ENCHANT_CFLAGS = -I$(BUILD_DIR)/include/glib-2.0
 	ENCHANT_LIBS = -L$(BUILD_DIR)/lib -lglib-2.0-0 -lgmodule-2.0-0
+	CC = gcc
+	CXX = g++ -static-libgcc -static-libstdc++
 endif
 ENCHANT_DIR = enchant-1.6.0
 
 ENCHANT_CONFIG_OPTS = --enable-ispell --enable-myspell --disable-aspell
-CC = gcc
-CXX = g++ -static-libgcc -static-libstdc++
 
 all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.dic \
 	$(BUILD_DIR)/share/enchant/myspell/en_US.dic $(BUILD_DIR)/share/enchant/myspell/de_DE.dic \
