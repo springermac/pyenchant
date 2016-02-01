@@ -5,4 +5,4 @@ environment:
     - MSYS2_ARCH: x86_64
 install:
   - C:\\msys64\usr\bin\bash -lc ""
-  - C:\\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy `(pactree -lrud1 mingw-w64-%MSYS2_ARCH%-enchant)`"
+  - C:\\msys64\usr\bin\bash -lc "pactree -lrud1 mingw-w64-%MSYS2_ARCH%-enchant"
