@@ -1,5 +1,8 @@
 platform:
   - x64
+environment:
+  matrix:
+    - MINGW_INSTALLS: mingw64
 install:
   - C:\msys64\usr\bin\bash -lc ""
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
