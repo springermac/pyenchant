@@ -24,7 +24,7 @@ if sys.version_info > (3,):
 
 # Location of the prebuilt binaries, if available
 if sys.platform == "win32":
-    BINDEPS = ".\\tools\\pyenchant-bdist-win32-sources\\build"
+    BINDEPS = ".\\tools\\mingw-w64-enchant\\build"
     DYLIB_EXT = ".dll"
 elif sys.platform == "darwin":
     BINDEPS = "./tools/pyenchant-bdist-osx-sources/build"
