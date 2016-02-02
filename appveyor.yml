@@ -1,12 +1,9 @@
 platform:
-  - x86
-environment:
-  matrix:
-    - MSYS2_ARCH: i686
+  - x64
 install:
   - C:\msys64\usr\bin\bash -lc ""
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
-  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-%MSYS2_ARCH%-hunspell"
+  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell"
   - C:\msys64\usr\bin\bash -lc "git clone https://github.com/msys2/MINGW-packages.git $APPVEYOR_BUILD_FOLDER/../MINGW-packages"
 build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/../MINGW-packages/mingw-w64-enchant; makepkg-mingw"
