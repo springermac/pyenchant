@@ -4,19 +4,13 @@
 BUILD_DIR = $(realpath build)
 ENCHANT_DIR = $(realpath src)/enchant-1.6.0-build-x86_64
 
-ifdef APPVEYOR
-	MAKEPKG_CMD = exec 0</dev/null; makepkg-mingw; exec 0<&-
-else
-	MAKEPKG_CMD = makepkg-mingw
-endif
-
 all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.dic \
 	$(BUILD_DIR)/share/enchant/myspell/en_US.dic $(BUILD_DIR)/share/enchant/myspell/de_DE.dic \
 	$(BUILD_DIR)/share/enchant/myspell/en_AU.dic $(BUILD_DIR)/share/enchant/myspell/fr_FR.dic
 
 #  Make enchant.
 $(BUILD_DIR)/lib/libenchant.dll:
-	$(MAKEPKG_CMD)
+	makepkg-mingw
 	mkdir -p $(BUILD_DIR)/lib
 	cp $(ENCHANT_DIR)/src/.libs/libenchant.dll $(BUILD_DIR)/lib/
 	mkdir -p $(BUILD_DIR)/lib/enchant
