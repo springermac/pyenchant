@@ -18,6 +18,6 @@ website/.hyde_deps
 .tox
 .coverage
 *.so
-*.idea
-*build
-*dist
+*.idea/
+*build/
+*dist/
