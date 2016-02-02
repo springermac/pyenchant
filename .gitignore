@@ -12,11 +12,10 @@
 *.dic
 *.aff
 *.dylib
-*.tar.gz
 website/deploy
 website/.hyde_deps
 .tox
 .coverage
 *.so
 *.idea/
-*dist/
+dist/
