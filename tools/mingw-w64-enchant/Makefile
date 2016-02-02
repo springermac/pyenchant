@@ -19,7 +19,7 @@ $(BUILD_DIR)/lib/libenchant.dll:
 
 # Ability to extract MySpell dictionary files
 $(BUILD_DIR)/share/enchant/myspell/%.dic: $(BUILD_DIR)/share/enchant/myspell/%.zip
-	cd $(BUILD_DIR)/share/enchant/myspell && unzip -n $< '*.dic' '*.aff'
+	cd $(BUILD_DIR)/share/enchant/myspell && unzip $< *.dic *.aff
 
 
 clean:
