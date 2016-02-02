@@ -10,7 +10,13 @@ all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.di
 
 #  Make enchant.
 $(BUILD_DIR)/lib/libenchant.dll:
-	makepkg-mingw
+	ifdef APPVEYOR
+		exec 0</dev/null
+		makepkg-mingw
+		exec 0<&-
+	else
+		makepkg-minw
+	endif
 	mkdir -p $(BUILD_DIR)/lib
 	cp $(ENCHANT_DIR)/src/.libs/libenchant.dll $(BUILD_DIR)/lib/
 	mkdir -p $(BUILD_DIR)/lib/enchant
