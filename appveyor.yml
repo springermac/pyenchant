@@ -5,6 +5,6 @@ install:
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell"
 build_script:
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; makepkg-mingw"
+  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
 artifacts:
   - path: tools/mingw-w64-enchant
