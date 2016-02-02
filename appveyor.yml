@@ -10,8 +10,9 @@ install:
   - C:\Python35-x64\python.exe -m pip install wheel
 build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; make; ldd build/lib/libenchant.dll"
-test_script:
-  - C:\Python35-x64\python.exe setup.py test
+  - C:\Python35-x64\python.exe setup.py build
+#test_script:
+#  - C:\Python35-x64\python.exe setup.py test
 after_test:
   - C:\Python35-x64\python.exe setup.py bdist_wheel
 artifacts:
