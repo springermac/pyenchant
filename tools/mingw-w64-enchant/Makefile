@@ -7,7 +7,7 @@ else
     BUILD_DIR = /c/Users/rfk/Documents/GitHub/pyenchant/tools/pyenchant-bdist-win32-sources/build
 endif
 
-ENCHANT_DIR = $(BUILD_DIR)/..
+ENCHANT_DIR = $(BUILD_DIR)/../
 
 all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.dic \
     $(BUILD_DIR)/share/enchant/myspell/en_US.dic $(BUILD_DIR)/share/enchant/myspell/de_DE.dic \
