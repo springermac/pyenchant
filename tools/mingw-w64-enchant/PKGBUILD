@@ -14,11 +14,14 @@ depends=(${MINGW_PACKAGE_PREFIX}-gcc-libs
     ${MINGW_PACKAGE_PREFIX}-glib2
     ${MINGW_PACKAGE_PREFIX}-hunspell)
 options=('!libtool' 'strip' '!makeflags')
-source=("http://www.abisource.com/downloads/${_realname}/${pkgver}/${_realname}-${pkgver}.tar.gz")
-md5sums=('de11011aff801dc61042828041fb59c7')
+source=("http://www.abisource.com/downloads/${_realname}/${pkgver}/${_realname}-${pkgver}.tar.gz"
+	'relocatable.patch')
+md5sums=('de11011aff801dc61042828041fb59c7'
+		 '39c82475710b6213c4af5a3bb2c392a9')
 
 prepare() {
   cd "$srcdir/${_realname}-$pkgver"
+  patch -Np1 -i "${srcdir}/relocatable.patch"
 }
 
 build() {
