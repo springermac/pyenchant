@@ -5,7 +5,7 @@ BUILD_DIR = $(abspath build)
 ENCHANT_DIR = $(abspath src)/enchant-1.6.0-build-x86_64
 
 ifdef APPVEYOR
-	MAKEPKG_CMD = makepkg-mingw
+	MAKEPKG_CMD = exec 0</dev/null; makepkg-mingw; exec 0<&-
 else
 	MAKEPKG_CMD = makepkg-mingw
 endif
@@ -31,7 +31,6 @@ clean:
 	rm -rf pkg
 	rm -f enchant-1.6.0.tar.gz
 	rm -f mingw-w64-x86_64-enchant-1.6.0-1-any.pkg.tar.xz
-	rm -f mingw-w64-i686-enchant-1.6.0-1-any.pkg.tar.xz
 
 clobber: clean
 	rm -f $(BUILD_DIR)/lib/libenchant*
