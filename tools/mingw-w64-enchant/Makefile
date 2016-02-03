@@ -5,7 +5,7 @@ BUILD_DIR = $(abspath build)
 ENCHANT_DIR = $(abspath src)/enchant-1.6.0-build-x86_64
 
 ifdef APPVEYOR
-	MAKEPKG_CMD = exec 0</dev/null; makepkg-mingw; exec 0<&-
+	MAKEPKG_CMD = makepkg-mingw
 else
 	MAKEPKG_CMD = makepkg-mingw
 endif
