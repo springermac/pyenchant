@@ -6,7 +6,7 @@ install:
   - C:\msys64\usr\bin\bash -lc ""
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell"
-#  - C:\msys64\usr\bin\bash -lc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
+  - C:\msys64\usr\bin\bash -lc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
 #  - C:\Python35-x64\python.exe -m pip install wheel
 build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
@@ -21,6 +21,6 @@ build_script:
 #  - C:\Python35-x64\python.exe setup.py bdist_wheel
 artifacts:
   - path: tools/mingw-w64-enchant
-  - path: dist
-on_finish:
-- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#  - path: dist
+#on_finish:
+#- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
