@@ -15,9 +15,11 @@ depends=(${MINGW_PACKAGE_PREFIX}-gcc-libs
     ${MINGW_PACKAGE_PREFIX}-hunspell)
 options=('!libtool' 'strip' '!makeflags')
 source=("http://www.abisource.com/downloads/${_realname}/${pkgver}/${_realname}-${pkgver}.tar.gz"
-    'relocatable.patch')
+    'relocatable.patch'
+    'configure.patch')
 md5sums=('de11011aff801dc61042828041fb59c7'
-         '39c82475710b6213c4af5a3bb2c392a9')
+         '39c82475710b6213c4af5a3bb2c392a9'
+         'fa015695bc5c538cfa78623664c7e192')
 
 prepare() {
   cd "$srcdir/${_realname}-$pkgver"

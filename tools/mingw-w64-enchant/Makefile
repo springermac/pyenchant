@@ -14,7 +14,6 @@ all: $(BUILD_DIR)/lib/libenchant.dll
 
 #  Make enchant.
 $(BUILD_DIR)/lib/libenchant.dll:
-	$(shell perl -i".bak" -pe "s/^test -n \".DJDIR\"/#$&/" configure)
 	$(MAKEPKG_CMD)
 	mkdir -p $(BUILD_DIR)/lib
 	cp $(ENCHANT_DIR)/src/.libs/libenchant.dll $(BUILD_DIR)/lib/
