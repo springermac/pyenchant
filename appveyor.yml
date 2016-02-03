@@ -1,5 +1,3 @@
-init:
-- ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 platform:
   - x64
 environment:
@@ -7,17 +5,17 @@ environment:
 install:
   - C:\msys64\usr\bin\bash -lc ""
   - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
-  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell"
+#  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell"
 #  - C:\msys64\usr\bin\bash -lc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
-  - C:\Python35-x64\python.exe -m pip install wheel
+#  - C:\Python35-x64\python.exe -m pip install wheel
 build_script:
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build; mkdir -p lib/enchant"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/.libs/libenchant.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/ispell/.libs/libenchant_ispell.dll build/lib/enchant/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/myspell/.libs/libenchant_myspell.dll build/lib/enchant/"
-  - C:\msys64\usr\bin\bash -lc "find / -name 'libglib*.*';"
-  - C:\Python35-x64\python.exe setup.py build
+#  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
+#  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build; mkdir -p lib/enchant"
+#  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/.libs/libenchant.dll build/lib/"
+#  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/ispell/.libs/libenchant_ispell.dll build/lib/enchant/"
+#  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/enchant-1.6.0-build-x86_64/src/myspell/.libs/libenchant_myspell.dll build/lib/enchant/"
+  - C:\msys64\usr\bin\bash -lc "ldd /mingw64/bin/libglib-2.0-0.dll"
+#  - C:\Python35-x64\python.exe setup.py build
 #test_script:
 #  - C:\Python35-x64\python.exe setup.py test
 #after_test:
@@ -25,3 +23,5 @@ build_script:
 artifacts:
   - path: tools/mingw-w64-enchant
   - path: dist
+on_finish:
+- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
