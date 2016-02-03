@@ -1,8 +1,14 @@
 #
 #  Makefile for building pyenchant win dependencies.
 #
-BUILD_DIR = $(realpath build)
-ENCHANT_DIR = $(realpath src)/enchant-1.6.0-build-x86_64
+BUILD_DIR = $(abspath build)
+ENCHANT_DIR = $(abspath src)/enchant-1.6.0-build-x86_64
+
+ifdef APPVEYOR
+	MAKEPKG_CMD = exec 0</dev/null; makepkg-mingw; exec 0<&-
+else
+	MAKEPKG_CMD = makepkg-mingw
+endif
 
 all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.dic \
 	$(BUILD_DIR)/share/enchant/myspell/en_US.dic $(BUILD_DIR)/share/enchant/myspell/de_DE.dic \
@@ -10,7 +16,7 @@ all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.di
 
 #  Make enchant.
 $(BUILD_DIR)/lib/libenchant.dll:
-	makepkg-mingw
+	$(MAKEPKG_CMD)
 	mkdir -p $(BUILD_DIR)/lib
 	cp $(ENCHANT_DIR)/src/.libs/libenchant.dll $(BUILD_DIR)/lib/
 	mkdir -p $(BUILD_DIR)/lib/enchant
