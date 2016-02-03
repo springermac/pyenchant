@@ -15,9 +15,9 @@ depends=(${MINGW_PACKAGE_PREFIX}-gcc-libs
     ${MINGW_PACKAGE_PREFIX}-hunspell)
 options=('!libtool' 'strip' '!makeflags')
 source=("http://www.abisource.com/downloads/${_realname}/${pkgver}/${_realname}-${pkgver}.tar.gz"
-	'relocatable.patch')
+    'relocatable.patch')
 md5sums=('de11011aff801dc61042828041fb59c7'
-		 '39c82475710b6213c4af5a3bb2c392a9')
+         '39c82475710b6213c4af5a3bb2c392a9')
 
 prepare() {
   cd "$srcdir/${_realname}-$pkgver"
@@ -29,7 +29,9 @@ build() {
   mkdir -p "${srcdir}/${_realname}-${pkgver}-build-${CARCH}"
   cd "${srcdir}/${_realname}-${pkgver}-build-${CARCH}"
   
-  ${srcdir}/${_realname}-${pkgver}/configure \
+  ${srcdir}/${_realname}-${pkgver}/autogen.sh \
+    --no-configure
+  ${srcdir}/${_realname}-${pkgver}/configure
     --build=${MINGW_CHOST} \
     --host=${MINGW_CHOST} \
     --target=${MINGW_CHOST} \
