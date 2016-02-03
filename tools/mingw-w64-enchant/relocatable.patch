@@ -1,5 +1,5 @@
---- enchant-1.6.0/src/enchant.c	2010-05-29 16:26:55.000000000 +1000
-+++ patched/src/enchant.c	2010-05-29 16:13:44.000000000 +1000
+--- src/enchant.c	2010-05-29 16:26:55.000000000 +1000
++++ src/enchant.c	2010-05-29 16:13:44.000000000 +1000
 @@ -240,16 +240,20 @@
  
  #if defined(ENCHANT_GLOBAL_MODULE_DIR)

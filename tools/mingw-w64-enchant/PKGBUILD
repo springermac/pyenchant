@@ -18,13 +18,13 @@ source=("http://www.abisource.com/downloads/${_realname}/${pkgver}/${_realname}-
     'relocatable.patch'
     'configure.patch')
 md5sums=('de11011aff801dc61042828041fb59c7'
-         '39c82475710b6213c4af5a3bb2c392a9'
-         'fa015695bc5c538cfa78623664c7e192')
+         '179ebabab2bfaec6e62bc2cd57d1ad54'
+         'dd7acd49f486d9d584fa044f2ad3dbd2')
 
 prepare() {
   cd "$srcdir/${_realname}-$pkgver"
-  patch -Np1 -i "${srcdir}/relocatable.patch"
-  patch -Np1 -i "${srcdir}/configure.patch"
+  patch -Np0 -i "${srcdir}/relocatable.patch"
+  patch -Np0 -i "${srcdir}/configure.patch"
 }
 
 build() {
