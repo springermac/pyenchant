@@ -31,7 +31,7 @@ build() {
   
   ${srcdir}/${_realname}-${pkgver}/autogen.sh \
     --no-configure
-  ${srcdir}/${_realname}-${pkgver}/configure
+  ${srcdir}/${_realname}-${pkgver}/configure \
     --build=${MINGW_CHOST} \
     --host=${MINGW_CHOST} \
     --target=${MINGW_CHOST} \
