@@ -49,7 +49,9 @@ build() {
     --disable-voikko \
     --disable-uspell \
     --disable-hspell \
-    --disable-zemberek
+    --disable-zemberek \
+    --enable-static \
+    --disable-shared
 
   make
 }
