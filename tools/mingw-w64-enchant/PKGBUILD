@@ -36,7 +36,7 @@ build() {
     --prefix=${MINGW_PREFIX} \
   --enable-ispell --enable-myspell --with-system-myspell \
   --disable-aspell --disable-voikko --disable-uspell \
-  --disable-hspell --disable-zemberek
+  --disable-hspell --disable-zemberek --enable-static --disable-dynamic
   
   make
 }
