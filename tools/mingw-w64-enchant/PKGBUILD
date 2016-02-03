@@ -29,8 +29,6 @@ build() {
   mkdir -p "${srcdir}/${_realname}-${pkgver}-build-${CARCH}"
   cd "${srcdir}/${_realname}-${pkgver}-build-${CARCH}"
   
-  ${srcdir}/${_realname}-${pkgver}/autogen.sh \
-    --no-configure
   ${srcdir}/${_realname}-${pkgver}/configure \
     --build=${MINGW_CHOST} \
     --host=${MINGW_CHOST} \
