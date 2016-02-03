@@ -10,9 +10,7 @@ else
 	MAKEPKG_CMD = makepkg-mingw
 endif
 
-all: $(BUILD_DIR)/lib/libenchant.dll $(BUILD_DIR)/share/enchant/myspell/en_GB.dic \
-	$(BUILD_DIR)/share/enchant/myspell/en_US.dic $(BUILD_DIR)/share/enchant/myspell/de_DE.dic \
-	$(BUILD_DIR)/share/enchant/myspell/en_AU.dic $(BUILD_DIR)/share/enchant/myspell/fr_FR.dic
+all: $(BUILD_DIR)/lib/libenchant.dll
 
 #  Make enchant.
 $(BUILD_DIR)/lib/libenchant.dll:
@@ -24,12 +22,12 @@ $(BUILD_DIR)/lib/libenchant.dll:
 	cp $(ENCHANT_DIR)/src/myspell/.libs/libenchant_myspell.dll $(BUILD_DIR)/lib/enchant/
 
 # Ability to extract MySpell dictionary files
-$(BUILD_DIR)/share/enchant/myspell/%.dic: $(BUILD_DIR)/share/enchant/myspell/%.zip
-	cd $(BUILD_DIR)/share/enchant/myspell && unzip -n $< '*.dic' '*.aff'
+#$(BUILD_DIR)/share/enchant/myspell/%.dic: $(BUILD_DIR)/share/enchant/myspell/%.zip
+#	cd $(BUILD_DIR)/share/enchant/myspell && unzip -n $< '*.dic' '*.aff'
 
 
 clean:
-	rm -fr src
+	rm -rf src
 	rm -rf pkg
 	rm -f enchant-1.6.0.tar.gz
 	rm -f mingw-w64-x86_64-enchant-1.6.0-1-any.pkg.tar.xz
