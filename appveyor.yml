@@ -7,30 +7,30 @@ environment:
     - platform: x64
       MINGW_INSTALLS: mingw64
 install:
-  - C:\msys64\usr\bin\bash -lc ""
-#  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
-  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell zip"
-#  - C:\msys64\usr\bin\bash -lc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
+  - C:\msys64\usr\bin\bash -lxc ""
+#  - C:\msys64\usr\bin\bash -lxc "pacman --noconfirm -Suy"
+  - C:\msys64\usr\bin\bash -lxc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell zip"
+#  - C:\msys64\usr\bin\bash -lxc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
   - C:\Python35-x64\python.exe -m pip install wheel
 build_script:
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build; mkdir -p lib/enchant"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/.libs/libenchant.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/ispell/.libs/libenchant_ispell.dll build/lib/enchant/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/myspell/.libs/libenchant_myspell.dll build/lib/enchant/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libglib-2.0-0.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libgmodule-2.0-0.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libintl-8.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libiconv-2.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libwinpthread-1.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libgcc_s_seh-1.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libstdc++-6.dll build/lib/"
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build/share/enchant/myspell; for file in *.zip; do unzip -l $file; done"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; exec 0</dev/null; makepkg-mingw"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build; mkdir -p lib/enchant"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/.libs/libenchant.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/ispell/.libs/libenchant_ispell.dll build/lib/enchant/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp src/build-*/src/myspell/.libs/libenchant_myspell.dll build/lib/enchant/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libglib-2.0-0.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libgmodule-2.0-0.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libintl-8.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libiconv-2.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libwinpthread-1.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libgcc_s_*-1.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /$MINGW_INSTALLS/bin/libstdc++-6.dll build/lib/"
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant/build/share/enchant/myspell; for file in *.zip; do unzip -l $file; done"
 test_script:
   - C:\Python35-x64\python.exe setup.py build
   - C:\Python35-x64\python.exe setup.py test
 on_finish:
-  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER; zip -r tools/mingw-w64-enchant.zip tools/mingw-w64-enchant/"
-  - appveyor PushArtifact tools/mingw-w64-enchant.zip
+  - C:\msys64\usr\bin\bash -lxc "cd $APPVEYOR_BUILD_FOLDER/tools; zip -r mingw-w64-enchant-$MINGW_INSTALLS.zip mingw-w64-enchant/"
+  - appveyor PushArtifact tools/mingw-w64-enchant-$MINGW_INSTALLS.zip
 #after_test:
 #  - C:\Python35-x64\python.exe setup.py bdist_wheel
