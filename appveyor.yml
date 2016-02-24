@@ -9,7 +9,7 @@ environment:
 install:
   - C:\msys64\usr\bin\bash -lc ""
 #  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
-  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell"
+  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -S mingw-w64-x86_64-hunspell mingw-w64-i686-hunspell zip"
 #  - C:\msys64\usr\bin\bash -lc "find /mingw64/lib -name '*.dll.a' -exec rm {} \\;"
   - C:\Python35-x64\python.exe -m pip install wheel
 build_script:
