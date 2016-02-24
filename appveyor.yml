@@ -1,10 +1,11 @@
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-matrix:
-  - platform: x86
-    MINGW_INTSALLS: mingw32
-  - platform: x64
-    MINGW_INSTALLS: mingw64
+environment:
+  matrix:
+    - platform: x86
+      MINGW_INTSALLS: mingw32
+    - platform: x64
+      MINGW_INSTALLS: mingw64
 install:
   - C:\msys64\usr\bin\bash -lc ""
 #  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
