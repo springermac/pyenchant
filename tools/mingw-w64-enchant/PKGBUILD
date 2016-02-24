@@ -27,8 +27,6 @@ prepare() {
   patch -p1 -i ${srcdir}/01-not-use-hardcoded-paths.patch
   # PyEnchant patch
   patch -Np0 -i "${srcdir}/relocatable.patch"
-
-  autoreconf -fiv
 }
 
 build() {
