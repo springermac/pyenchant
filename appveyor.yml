@@ -23,9 +23,9 @@ build_script:
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /mingw64/bin/libwinpthread-1.dll build/lib/"
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /mingw64/bin/libgcc_s_seh-1.dll build/lib/"
   - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER/tools/mingw-w64-enchant; cp /mingw64/bin/libstdc++-6.dll build/lib/"
-#  - C:\Python35-x64\python.exe setup.py build
-#test_script:
-#  - C:\Python35-x64\python.exe setup.py test
+test_script:
+  - C:\Python35-x64\python.exe setup.py build
+  - C:\Python35-x64\python.exe setup.py test
 #after_test:
 #  - C:\Python35-x64\python.exe setup.py bdist_wheel
 artifacts:
