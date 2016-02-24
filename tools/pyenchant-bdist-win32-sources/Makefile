@@ -45,3 +45,4 @@ clobber: clean
 	rm -f $(BUILD_DIR)/share/enchant/myspell/*.dic
 	rm -f $(BUILD_DIR)/share/enchant/myspell/*.aff
 	rm -f $(BUILD_DIR)/share/enchant/myspell/*.txt
+
