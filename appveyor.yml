@@ -3,7 +3,7 @@ init:
 environment:
   matrix:
     - platform: x86
-      MINGW_INTSALLS: mingw32
+      MINGW_INSTALLS: mingw32
     - platform: x64
       MINGW_INSTALLS: mingw64
 install:
