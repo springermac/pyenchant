@@ -1,0 +1,11 @@
+--- src/enchant-provider.h	2016-02-24 00:31:39.000000000 -0500
++++ src/enchant-provider.h	2010-04-01 16:53:37.000000000 -0400
+@@ -49,7 +49,7 @@
+ 		 enchant_get_user_language(void);
+ 
+ #ifdef _WIN32
+-#define ENCHANT_PLUGIN_DECLARE(name) static HANDLE s_hModule = (HANDLE)(NULL); BOOL APIENTRY DllMain( HANDLE hModule, DWORD ul_reason_for_call, LPVOID lpReserved ) { s_hModule = hModule; return TRUE; } 
++#define ENCHANT_PLUGIN_DECLARE(name) static HANDLE s_hModule = (HANDLE)(NULL); BOOL APIENTRY DllMain( HINSTANCE hModule, DWORD ul_reason_for_call, LPVOID lpReserved ) { s_hModule = hModule; return TRUE; }
+ #else
+ #define ENCHANT_PLUGIN_DECLARE(name)
+ #endif
