@@ -7,10 +7,6 @@ matrix:
   - platform: x64
     environment:
       - MINGW_INSTALLS: mingw64
-matrix:
-  allow_failures:
-    - platform: x86
-    - platform: x64
 install:
   - C:\msys64\usr\bin\bash -lc ""
 #  - C:\msys64\usr\bin\bash -lc "pacman --noconfirm -Suy"
@@ -34,8 +30,7 @@ build_script:
 test_script:
   - C:\Python35-x64\python.exe setup.py build
   - C:\Python35-x64\python.exe setup.py test
+on_finish:
+  - appveyor PushArtifact tools/mingw-w64-enchant
 #after_test:
 #  - C:\Python35-x64\python.exe setup.py bdist_wheel
-artifacts:
-  - path: tools/mingw-w64-enchant
-#  - path: dist
