@@ -30,6 +30,7 @@ test_script:
   - C:\Python35-x64\python.exe setup.py build
   - C:\Python35-x64\python.exe setup.py test
 on_finish:
-  - appveyor PushArtifact tools/mingw-w64-enchant/
+  - C:\msys64\usr\bin\bash -lc "cd $APPVEYOR_BUILD_FOLDER; zip -r tools/mingw-w64-enchant.zip tools/mingw-w64-enchant/"
+  - appveyor PushArtifact tools/mingw-w64-enchant.zip
 #after_test:
 #  - C:\Python35-x64\python.exe setup.py bdist_wheel
