@@ -1,14 +1,15 @@
 init:
   - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+platform:
+  - x86
+  - x64
 matrix:
   allow_failures:
     - platform: x86
-
     - platform: x64
 environment:
   matrix:
     - MINGW_INSTALLS: mingw32
-
     - MINGW_INSTALLS: mingw64
 install:
   - C:\msys64\usr\bin\bash -lc ""
